@@ -27,16 +27,19 @@ export const categories = [
         id: 1,
         img: "https://images.fun.com/products/64342/1-2/pop-marvel-endgame-captain-america-w--broken-shield.jpg",
         title: "AVENGER STYLE!",
+        cat: "man"
     },
     {
         id: 2,
         img: "https://images.fun.com/products/83716/1-2/pop-comic-cover-marvel-moon-knight.jpg",
         title: "MOON LOVE",
+        cat: "moon"
     },
     {
         id: 3,
         img: "https://images.fun.com/products/78853/1-2/marvel-universe-carnage-renewal-edition-artfx-statue.jpg",
         title: "VENOM SLICK",
+        cat: "alien"
     },
 ];
 
