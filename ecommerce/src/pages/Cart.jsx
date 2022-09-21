@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Annoucement from '../components/Annoucement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -135,6 +136,7 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+    const cart = useSelector(state => state.cart)
     return (
         <Container>
             <Navbar />
@@ -171,25 +173,6 @@ const Cart = () => {
                             </PriceDetail>
                         </Product>
                         <Hr />
-                        <Product>
-                            <ProductDetail>
-                                <Image src="https://images.fun.com/products/64342/1-2/pop-marvel-endgame-captain-america-w--broken-shield.jpg" />
-                                <Details>
-                                    <ProductName><b>Product:</b> CAPTAIN AMERICA</ProductName>
-                                    <ProductId><b>ID:</b> 995512</ProductId>
-                                    <ProductColor />
-                                    <ProductSize><b>Size:</b> 37.5cm</ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount>2</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>$30</ProductPrice>
-                            </PriceDetail>
-                        </Product>
                     </Info>
                     <Summary>
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>

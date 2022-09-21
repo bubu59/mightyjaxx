@@ -6,7 +6,9 @@ import Annoucement from '../components/Annoucement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Newsletter from '../components/Newsletter';
+import { addProduct } from '../redux/cartRedux';
 import { publicRequest } from '../requestMethods';
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
 `;
@@ -108,11 +110,12 @@ const Product = () => {
     const id = location.pathname.split("/")[2];
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const res = await publicRequest.get("/product/find/" + id);
+                const res = await publicRequest.get("/products/find/" + id);
                 setProduct(res.data);
             } catch { }
         };
@@ -125,6 +128,10 @@ const Product = () => {
         } else {
             setQuantity(quantity + 1);
         }
+    };
+
+    const handleClick = () => {
+        dispatch(addProduct({ ...product, quantity }));
     };
     return (
         <Container>
@@ -162,7 +169,7 @@ const Product = () => {
                             <Amount>{quantity}</Amount>
                             <Add onClick={() => handleQuantity("inc")} />
                         </AmountContainer>
-                        <Button>ADD TO CART</Button>
+                        <Button onClick={handleClick}>ADD TO CART</Button>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>
