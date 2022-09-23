@@ -14,6 +14,8 @@ import {
 // const Container = styled.div``;
 
 function App() {
+  const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).currentUser).isAdmin;
+
   return (
     <Router>
       <Switch>
