@@ -14,6 +14,7 @@ import {
     WorkOutline,
     Report,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     flex: 1;
@@ -84,7 +85,9 @@ const Sidebar = () => {
                             User
                         </ListItemActive>
                         <ListItemActive>
-                            <Storefront />
+                            <Link to="/products">
+                                <Storefront />
+                            </Link>
                             Products
                         </ListItemActive>
                         <ListItemActive>
