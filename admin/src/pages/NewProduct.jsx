@@ -17,6 +17,8 @@ const Input = styled.input``;
 
 const Select = styled.select``;
 
+const Option = styled.option``;
+
 const AddProductButton = styled.button``;
 
 

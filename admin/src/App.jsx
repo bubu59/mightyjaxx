@@ -4,7 +4,8 @@ import Topbar from "./components/Topbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProductList from "./pages/productList/ProductList";
-
+import NewProduct from "./pages/NewProduct";
+import Product from "./pages/Product";
 
 import {
   BrowserRouter as Router,
@@ -12,7 +13,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Product from "./pages/Product";
+
 
 
 const Container = styled.div``;
