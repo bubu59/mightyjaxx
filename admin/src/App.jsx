@@ -11,6 +11,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import Product from "./pages/Product";
 
 
 const Container = styled.div``;
@@ -30,10 +31,10 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/products">
-          <ProductList />
+          <Product />
         </Route>
         <Route exact path="/products/:productsId">
-          <Home />
+          <Product />
         </Route>
         <Route exact path="/newproduct">
           <Home />
