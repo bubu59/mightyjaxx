@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProductList from "./pages/productList/ProductList";
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -37,7 +38,7 @@ function App() {
           <Product />
         </Route>
         <Route exact path="/newproduct">
-          <Home />
+          <NewProduct />
         </Route>
       </Switch>
     </Router>
