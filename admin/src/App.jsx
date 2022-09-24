@@ -33,7 +33,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/products">
-          <Product />
+          <ProductList />
         </Route>
         <Route exact path="/products/:productsId">
           <Product />

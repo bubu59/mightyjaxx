@@ -7,19 +7,43 @@ const Container = styled.div`
 
 const AddProductTitle = styled.h1``;
 
-const AddProductForm = styled.form``;
+const AddProductForm = styled.form`
+    margin-top: 10px;
+`;
 
-const AddProductItem = styled.div``;
+const AddProductItem = styled.div`
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+`;
 
-const Label = styled.label``;
+const Label = styled.label`
+    color: gray;
+    font-weight: 600;
+    margin-bottom: 10px;
+`;
 
-const Input = styled.input``;
+const Input = styled.input`
+    padding: 10px;
+`;
 
-const Select = styled.select``;
+const Select = styled.select`
+    padding: 10px;
+`;
 
 const Option = styled.option``;
 
-const AddProductButton = styled.button``;
+const AddProductButton = styled.button`
+    margin-top: 10px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+`;
 
 
 const NewProduct = () => {
