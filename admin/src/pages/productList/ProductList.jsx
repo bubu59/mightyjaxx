@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
-import { productRows } from "../../dummyData";
 
 export default function ProductList() {
     const dispatch = useDispatch();
@@ -47,7 +46,7 @@ export default function ProductList() {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={"/Product/" + params.row._id}>
+                        <Link to={"/product/" + params.row._id}>
                             <button className="productListEdit">Edit</button>
                         </Link>
                         <DeleteOutline

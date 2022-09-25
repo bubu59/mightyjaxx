@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
+// import styled from "styled-components";
+// import Sidebar from "./components/Sidebar";
+// import Topbar from "./components/Topbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProductList from "./pages/productList/ProductList";
@@ -14,14 +14,11 @@ import {
   Redirect,
 } from "react-router-dom";
 
-
-
-const Container = styled.div``;
-
 function App() {
-  // const admin = JSON.parse(
-  //   JSON.parse(localStorage.getItem("persist:root")).user
-  // ).currentUser.isAdmin;
+
+  const admin = JSON.parse(
+    JSON.parse(localStorage.getItem("persist:root")).user
+  ).currentUser.isAdmin;
 
   return (
     <Router>
@@ -29,18 +26,22 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/products">
-          <ProductList />
-        </Route>
-        <Route exact path="/products/:productsId">
-          <Product />
-        </Route>
-        <Route exact path="/newproduct">
-          <NewProduct />
-        </Route>
+        {admin && (
+          <>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/products">
+              <ProductList />
+            </Route>
+            <Route path="/products/:productsId">
+              <Product />
+            </Route>
+            <Route path="/newproduct">
+              <NewProduct />
+            </Route>
+          </>
+        )}
       </Switch>
     </Router>
 

@@ -1,11 +1,13 @@
 import { Publish } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 
 const Container = styled.div`
     flex: 4;
     padding: 20px;
+    height: 400px;
 `;
 
 const ProductTitleContainer = styled.div`
@@ -137,6 +139,11 @@ const ProductButton = styled.button`
 
 
 const Product = () => {
+    const location = useLocation();
+    const productId = location.pathname.split("/")[2];
+
+    const product = useSelector((state) =>
+        state.product.products.find((product) => product._id === productId));
     return (
         <Container>
             <ProductTitleContainer>
@@ -154,13 +161,13 @@ const Product = () => {
                 </ProductTopLeft>
                 <ProductTopRight>
                     <ProductInfoTop>
-                        <ProductInfoImg />
-                        <ProductName>BUBU</ProductName>
+                        <ProductInfoImg src={product.img} />
+                        <ProductName>{product.title}</ProductName>
                     </ProductInfoTop>
                     <ProductInfoBottom>
                         <ProductInfoItem>
                             <ProductInfoKey>id:</ProductInfoKey>
-                            <ProductInfoValue>123456</ProductInfoValue>
+                            <ProductInfoValue>{product._id}</ProductInfoValue>
                         </ProductInfoItem>
                         <ProductInfoItem>
                             <ProductInfoKey>sales:</ProductInfoKey>
@@ -168,7 +175,7 @@ const Product = () => {
                         </ProductInfoItem>
                         <ProductInfoItem>
                             <ProductInfoKey>in stock:</ProductInfoKey>
-                            <ProductInfoValue>true/false</ProductInfoValue>
+                            <ProductInfoValue>{product.inStock}</ProductInfoValue>
                         </ProductInfoItem>
                     </ProductInfoBottom>
                 </ProductTopRight>
@@ -177,11 +184,11 @@ const Product = () => {
                 <ProductForm>
                     <ProductFormLeft>
                         <Label>Product Name</Label>
-                        <Input type="text" placeholder="product" />
+                        <Input type="text" placeholder={product.title} />
                         <Label>Product Description</Label>
-                        <Input type="text" placeholder="desc" />
+                        <Input type="text" placeholder={product.desc} />
                         <Label>Price</Label>
-                        <Input type="text" placeholder="price" />
+                        <Input type="text" placeholder={product.price} />
                         <Label>In Stock</Label>
                         <Select name="inStock" id="idStock">
                             <Option value="true">Yes</Option>
@@ -190,7 +197,7 @@ const Product = () => {
                     </ProductFormLeft>
                     <ProductFormRight>
                         <ProductUpload>
-                            <ProductUploadImg />
+                            <ProductUploadImg src={product.img} />
                             <Label for="file">
                                 <Publish />
                             </Label>
