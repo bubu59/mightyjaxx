@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import ProductList from "./pages/productList/ProductList";
 import NewProduct from "./pages/NewProduct";
 import Product from "./pages/Product";
+import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -16,9 +17,7 @@ import {
 
 function App() {
 
-  const admin = JSON.parse(
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isAdmin;
+  const admin = useSelector((state) => state.user.currentUser.isAdmin);
 
   return (
     <Router>
