@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
     flex: 4;
@@ -47,33 +49,48 @@ const AddProductButton = styled.button`
 
 
 const NewProduct = () => {
+    const [inputs, setInputs] = useState({});
+    const [file, setFile] = useState(null);
+    const [cat, setCat] = useState([]);
+    const dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        setInputs((prev) => {
+            return { ...prev, [e.target.name]: e.target.value };
+        });
+    };
+
+    const handleCat = (e) => {
+        setCat(e.target.value.split(","));
+    };
+
     return (
         <Container>
             <AddProductTitle>
                 <AddProductForm>
                     <AddProductItem>
                         <Label>Image</Label>
-                        <Input type="file" id="file" />
+                        <Input type="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Title</Label>
-                        <Input name="text" type="text" placeholder="Apple Airpods" />
+                        <Input name="text" type="text" placeholder="Apple Airpods" onChange={handleChange} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Description</Label>
-                        <Input name="desc" type="text" placeholder="description..." />
+                        <Input name="desc" type="text" placeholder="description..." onChange={handleChange} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Price</Label>
-                        <Input name="price" type="number" placeholder="100" />
+                        <Input name="price" type="number" placeholder="100" onChange={handleChange} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Categories</Label>
-                        <Input type="text" placeholder="jeans, skirts" />
+                        <Input type="text" placeholder="jeans, skirts" onChange={handleCat} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Stock</Label>
-                        <Select name="inStock">
+                        <Select name="inStock" onChange={handleChange}>
                             <Option value="true">Yes</Option>
                             <Option value="false">No</Option>
                         </Select>

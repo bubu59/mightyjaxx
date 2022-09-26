@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 
 const Container = styled.div`
-    display:flex;
     padding: 20px;
     height: 100%;
 `;
