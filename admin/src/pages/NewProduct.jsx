@@ -117,8 +117,6 @@ const NewProduct = () => {
 
     };
 
-    console.log(file);
-
 
     return (
         <Container>
