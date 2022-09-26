@@ -128,7 +128,7 @@ const NewProduct = () => {
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Title</Label>
-                        <Input name="text" type="text" placeholder="Apple Airpods" onChange={handleChange} />
+                        <Input name="title" type="text" placeholder="Apple Airpods" onChange={handleChange} />
                     </AddProductItem>
                     <AddProductItem>
                         <Label>Description</Label>

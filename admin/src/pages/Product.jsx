@@ -160,7 +160,7 @@ const Product = () => {
 
     const handleChange = (e) => {
         setInputs((prev) => {
-            return { ...prev, [e.target.id]: e.target.value };
+            return { ...prev, [e.target.name]: e.target.value };
         });
     };
 
@@ -248,11 +248,11 @@ const Product = () => {
                 <ProductForm>
                     <ProductFormLeft>
                         <Label>Product Name</Label>
-                        <Input name="title" type="text" placeholder={product.title} onChange={handleChange} id="title" />
+                        <Input name="title" type="text" placeholder={product.title} onChange={handleChange} />
                         <Label>Product Description</Label>
-                        <Input type="text" placeholder={product.desc} onChange={handleChange} name="desc" id="desc" />
+                        <Input type="text" placeholder={product.desc} onChange={handleChange} />
                         <Label>Price</Label>
-                        <Input type="number" placeholder={product.price} onChange={handleChange} name="price" id="price" />
+                        <Input type="text" placeholder={product.price} onChange={handleChange} />
                         <Label>In Stock</Label>
                         <Select name="inStock" id="idStock" onChange={handleChange}>
                             <Option value="true">Yes</Option>
