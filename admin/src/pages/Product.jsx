@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 
 
 const Container = styled.div`
-    flex: 4;
+    display:flex;
     padding: 20px;
-    height: 400px;
+    height: 100%;
 `;
 
 const ProductTitleContainer = styled.div`
