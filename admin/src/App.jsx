@@ -23,20 +23,24 @@ function App() {
     <Router>
       <Switch>
         <Route path="/login">
-          {admin ? <Redirect to="/" /> : <Login />}
+          <Login />
         </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/products">
-          <ProductList />
-        </Route>
-        <Route path="/product/:productId">
-          <Product />
-        </Route>
-        <Route path="/newproduct">
-          <NewProduct />
-        </Route>
+        {admin && (
+          <>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/products">
+              <ProductList />
+            </Route>
+            <Route path="/product/:productId">
+              <Product />
+            </Route>
+            <Route path="/newproduct">
+              <NewProduct />
+            </Route>
+          </>
+        )}
       </Switch>
     </Router>
 
