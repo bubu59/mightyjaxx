@@ -160,7 +160,7 @@ const Product = () => {
 
     const handleChange = (e) => {
         setInputs((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
+            return { ...prev, [e.target.id]: e.target.value };
         });
     };
 
@@ -248,11 +248,11 @@ const Product = () => {
                 <ProductForm>
                     <ProductFormLeft>
                         <Label>Product Name</Label>
-                        <Input type="text" placeholder={product.title} onChange={handleChange} />
+                        <Input name="title" type="text" placeholder={product.title} onChange={handleChange} id="title" />
                         <Label>Product Description</Label>
-                        <Input type="text" placeholder={product.desc} onChange={handleChange} />
+                        <Input type="text" placeholder={product.desc} onChange={handleChange} name="desc" id="desc" />
                         <Label>Price</Label>
-                        <Input type="text" placeholder={product.price} onChange={handleChange} />
+                        <Input type="number" placeholder={product.price} onChange={handleChange} name="price" id="price" />
                         <Label>In Stock</Label>
                         <Select name="inStock" id="idStock" onChange={handleChange}>
                             <Option value="true">Yes</Option>
@@ -262,7 +262,7 @@ const Product = () => {
                     <ProductFormRight>
                         <ProductUpload>
                             <ProductUploadImg src={product.img} />
-                            <Label for="file">
+                            <Label htmlFor="file">
                                 <Publish />
                             </Label>
                             <Input type="file" id="file" style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
