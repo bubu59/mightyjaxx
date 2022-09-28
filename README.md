@@ -9,7 +9,7 @@
 
 ## Instructions
 1. Clone GitHub repo 
-2. Enter into each folder ( admin, ecommerce, ecommerceapi ) respectively and run `yarn install` to install all dependencies from `package.json` for each of them 
+2. `Cd` into each folder ( admin, ecommerce, ecommerceapi ) respectively and run `yarn install` to install all dependencies from `package.json` for each of them 
 3. Once installed, run `yarn start` for all 3 of them in their terminals respectively 
 
 ## Checklist 
